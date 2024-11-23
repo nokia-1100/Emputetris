@@ -3,7 +3,7 @@ const context = canvas.getContext("2d");
 
 const ROWS = 20;
 const COLUMNS = 10;
-const BLOCK_SIZE = 20;  // Reduced block size to fit better on the screen
+const BLOCK_SIZE = 20; // Reduced block size to fit better on the screen
 
 context.scale(BLOCK_SIZE, BLOCK_SIZE);
 
@@ -61,12 +61,9 @@ function draw() {
     // Reset the shadow properties after drawing the pieces
     context.shadowColor = "transparent";
     context.shadowBlur = 0;
-}
 
-// Game over and other messages
-function gameOver() {
-    alert("Game Over!");
-    resetPlayer();
+    // Update score display
+    document.querySelector(".score").textContent = `Score: ${score}`;
 }
 
 // Merge player piece with the arena
@@ -82,14 +79,15 @@ function merge(arena, player) {
 
 // Arena sweep and score incrementing logic
 function arenaSweep() {
+    let linesCleared = 0;
     outer: for (let y = arena.length - 1; y >= 0; y--) {
         if (arena[y].every(value => value)) {
             arena.splice(y, 1);
             arena.unshift(new Array(COLUMNS).fill(0));
-            // Increment score when a line is cleared
-            score += 100;
+            linesCleared++;
         }
     }
+    score += linesCleared * 100; // Add 100 points for each cleared line
 }
 
 // Player drop logic
@@ -98,18 +96,30 @@ function playerDrop() {
     if (collide(arena, player)) {
         player.pos.y--;
         merge(arena, player);
-        resetPlayer();
         arenaSweep();
+        resetPlayer();
     }
     dropCounter = 0;
 }
 
+// Generate least convenient piece
+function getLeastConvenientPiece() {
+    // Analyze the arena and player position
+    const worstPiece = pieces.find(piece => {
+        const testPlayer = { ...player, matrix: piece };
+        testPlayer.pos.y++;
+        return collide(arena, testPlayer);
+    });
+    return worstPiece || pieces[0]; // Default to the first piece if no clear "worst" exists
+}
+
 function resetPlayer() {
-    player.matrix = pieces[Math.floor(Math.random() * pieces.length)];
+    player.matrix = getLeastConvenientPiece();
     player.pos = { x: Math.floor(COLUMNS / 2 - player.matrix[0].length / 2), y: 0 };
     if (collide(arena, player)) {
         arena.forEach(row => row.fill(0));
-        gameOver();
+        alert("Game Over!");
+        score = 0; // Reset the score
     }
 }
 
@@ -170,7 +180,7 @@ function update(time = 0) {
 
 // Player control
 document.addEventListener("keydown", event => {
-    if (event.key === "ArrowLeft") playerMove(1);
+    if (event.key === "ArrowLeft") playerMove(1); // Reversed keys
     if (event.key === "ArrowRight") playerMove(-1);
     if (event.key === "ArrowDown") playerDrop();
     if (event.key === "ArrowUp") playerRotate();
