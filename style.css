@@ -19,7 +19,7 @@ body {
 }
 
 h1 {
-    font-size: 48px;
+    font-size: 36px; /* Reduced size to fit the screen */
     color: #ffcc00; /* Yellowish glow for the title */
     text-shadow: 0 0 5px #ffcc00, 0 0 10px #ffcc00, 0 0 20px #ffcc00; /* Glowing effect */
     margin-bottom: 20px;
@@ -29,18 +29,20 @@ canvas {
     border: 2px solid #ffcc00; /* Border in the same yellow glow */
     background-color: #111; /* Dark background for the canvas */
     box-shadow: 0 0 10px 5px rgba(255, 204, 0, 0.6); /* Subtle glowing effect around the canvas */
+    width: 300px; /* Scaled width to fit the screen */
+    height: 600px; /* Scaled height to fit the screen */
 }
 
 .score {
     color: #ffcc00; /* Same yellow glow for score */
-    font-size: 24px;
+    font-size: 18px; /* Smaller font for the score */
     margin-top: 10px;
     text-shadow: 0 0 5px #ffcc00, 0 0 10px #ffcc00, 0 0 20px #ffcc00; /* Glowing effect */
 }
 
 .game-over {
     color: #ffcc00;
-    font-size: 36px;
+    font-size: 24px; /* Reduced font size for the game-over message */
     margin-top: 20px;
     text-shadow: 0 0 10px #ffcc00, 0 0 20px #ffcc00, 0 0 40px #ffcc00;
 }
