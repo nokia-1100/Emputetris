@@ -10,13 +10,13 @@ context.scale(BLOCK_SIZE, BLOCK_SIZE);
 // Colors for each piece type
 const colors = [
     null,
-    "red",
-    "blue",
-    "green",
-    "purple",
-    "orange",
-    "cyan",
-    "yellow"
+    "#FF0000",     // Red
+    "#0000FF",     // Blue
+    "#00FF00",     // Green
+    "#800080",     // Purple
+    "#FFA500",     // Orange
+    "#00FFFF",     // Cyan
+    "#FFFF00"      // Yellow
 ];
 
 // Tetromino shapes
@@ -24,14 +24,14 @@ const pieces = "ILJOTSZ".split("").map(type => createPiece(type));
 
 // Create shapes for tetromino pieces
 function createPiece(type) {
-    switch (type) {
-        case "T": return [[0, 1, 0], [1, 1, 1]];
-        case "O": return [[1, 1], [1, 1]];
-        case "L": return [[0, 0, 1], [1, 1, 1]];
-        case "J": return [[1, 0, 0], [1, 1, 1]];
-        case "I": return [[0, 0, 0, 0], [1, 1, 1, 1]];
-        case "S": return [[0, 1, 1], [1, 1, 0]];
-        case "Z": return [[1, 1, 0], [0, 1, 1]];
+      switch (type) {
+        case "T": return [[0, 1, 0], [1, 1, 1]]; // Piece type 'T' is assigned the color 'red' (1)
+        case "O": return [[2, 2], [2, 2]];       // Piece type 'O' is assigned the color 'blue' (2)
+        case "L": return [[0, 0, 3], [3, 3, 3]];
+        case "J": return [[4, 0, 0], [4, 4, 4]];
+        case "I": return [[0, 0, 0, 0], [5, 5, 5, 5]];
+        case "S": return [[0, 6, 6], [6, 6, 0]];
+        case "Z": return [[7, 7, 0], [0, 7, 7]];
     }
 }
 
@@ -39,7 +39,7 @@ function drawMatrix(matrix, offset) {
     matrix.forEach((row, y) => {
         row.forEach((value, x) => {
             if (value) {
-                context.fillStyle = colors[value];
+                context.fillStyle = colors[value]; // Use the color corresponding to the piece
                 context.fillRect(x + offset.x, y + offset.y, 1, 1);
             }
         });
