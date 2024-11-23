@@ -1,3 +1,4 @@
+/* General Reset */
 * {
     margin: 0;
     padding: 0;
@@ -5,49 +6,41 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: #111;
-    color: white;
-    height: 100vh;
-    justify-content: center;
-}
-
-.title-container {
-    position: absolute;
-    top: 20px;
-    animation: titleAnimation 2s ease-in-out infinite;
-}
-
-.title {
-    font-size: 40px;
-    color: #FF5733;
+    background-color: #222; /* Dark background for the body */
+    font-family: 'Press Start 2P', cursive; /* Retro font */
+    color: #eee;
     text-align: center;
-    margin: 0;
-}
-
-@keyframes titleAnimation {
-    0% { color: #FF5733; }
-    50% { color: #FFFD33; }
-    100% { color: #FF5733; }
-}
-
-.game-container {
-    position: relative;
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
+    height: 100vh;
+    overflow: hidden;
+    flex-direction: column;
+}
+
+h1 {
+    font-size: 48px;
+    color: #ffcc00; /* Yellowish glow for the title */
+    text-shadow: 0 0 5px #ffcc00, 0 0 10px #ffcc00, 0 0 20px #ffcc00; /* Glowing effect */
+    margin-bottom: 20px;
 }
 
 canvas {
-    border: 2px solid #333;
-    background-color: black;
+    border: 2px solid #ffcc00; /* Border in the same yellow glow */
+    background-color: #111; /* Dark background for the canvas */
+    box-shadow: 0 0 10px 5px rgba(255, 204, 0, 0.6); /* Subtle glowing effect around the canvas */
 }
 
-#score {
+.score {
+    color: #ffcc00; /* Same yellow glow for score */
+    font-size: 24px;
     margin-top: 10px;
-    font-size: 20px;
-    font-weight: bold;
+    text-shadow: 0 0 5px #ffcc00, 0 0 10px #ffcc00, 0 0 20px #ffcc00; /* Glowing effect */
+}
+
+.game-over {
+    color: #ffcc00;
+    font-size: 36px;
+    margin-top: 20px;
+    text-shadow: 0 0 10px #ffcc00, 0 0 20px #ffcc00, 0 0 40px #ffcc00;
 }
