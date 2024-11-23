@@ -1,76 +1,53 @@
-/* General Reset */
-body {
+* {
     margin: 0;
     padding: 0;
-    background-color: #000; /* Black background for the game */
-    color: #fff; /* White text for contrast */
-    font-family: 'Arial', sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: #111;
+    color: white;
+    height: 100vh;
     justify-content: center;
-    height: 100vh; /* Full screen without scrolling */
-    overflow: hidden; /* Prevent scrolling */
 }
 
-/* Title Container */
-#title-container {
-    margin-bottom: 5px; /* Reduced spacing for tighter fit */
+.title-container {
+    position: absolute;
+    top: 20px;
+    animation: titleAnimation 2s ease-in-out infinite;
 }
 
-/* Game Title Styling */
-#game-title {
-    font-size: 1.8em; /* Smaller title size for better screen fit */
-    font-weight: bold;
-    color: #ff5733; /* Bold orange title */
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
-    animation: pulse 1.5s infinite; /* Title animation */
-}
-
-/* Title Animation */
-@keyframes pulse {
-    0%, 100% {
-        transform: scale(1);
-        opacity: 1;
-    }
-    50% {
-        transform: scale(1.1);
-        opacity: 0.8;
-    }
-}
-
-/* Game Canvas */
-canvas {
-    display: block;
-    border: 2px solid #ff5733; /* Matches the title color */
-    box-shadow: 0 0 10px rgba(255, 87, 51, 0.8); /* Glowing effect */
-    width: 200px; /* Scaled down from 250px */
-    height: 400px; /* Scaled down from 500px */
-}
-
-/* Body Centering */
-body > canvas,
-body > div {
-    max-width: 100%;
-}
-
-/* Hard Mode Emphasis */
-body::after {
-    content: "HARD MODE: The least convenient pieces await you.";
-    color: #ff0000; /* Bold red to reflect the difficulty */
-    font-size: 0.9em; /* Reduced size for compact layout */
-    margin-top: 5px;
-    display: block;
+.title {
+    font-size: 40px;
+    color: #FF5733;
     text-align: center;
-    animation: warning-blink 1.2s infinite;
+    margin: 0;
 }
 
-/* Warning Animation */
-@keyframes warning-blink {
-    0%, 100% {
-        opacity: 1;
-    }
-    50% {
-        opacity: 0.5;
-    }
+@keyframes titleAnimation {
+    0% { color: #FF5733; }
+    50% { color: #FFFD33; }
+    100% { color: #FF5733; }
+}
+
+.game-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+canvas {
+    border: 2px solid #333;
+    background-color: black;
+}
+
+#score {
+    margin-top: 10px;
+    font-size: 20px;
+    font-weight: bold;
 }
