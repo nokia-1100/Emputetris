@@ -1,4 +1,3 @@
-/* General Reset */
 * {
     margin: 0;
     padding: 0;
@@ -6,59 +5,49 @@
 }
 
 body {
-    background-color: #222; /* Dark background */
-    font-family: 'Press Start 2P', cursive; /* Retro font */
-    color: #eee;
-    text-align: center;
+    font-family: Arial, sans-serif;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    overflow: hidden;
     flex-direction: column;
+    align-items: center;
+    background-color: #111;
+    color: white;
+    height: 100vh;
+    justify-content: center;
 }
 
-h1 {
-    font-size: 28px; /* Adjusted to fit smaller screens */
-    color: #ffcc00; /* Yellow glow for the title */
-    text-shadow: 0 0 5px #ffcc00, 0 0 10px #ffcc00, 0 0 20px #ffcc00; /* Glowing effect */
-    margin-bottom: 15px;
+.title-container {
+    position: absolute;
+    top: 20px;
+    animation: titleAnimation 2s ease-in-out infinite;
+}
+
+.title {
+    font-size: 40px;
+    color: #FF5733;
+    text-align: center;
+    margin: 0;
+}
+
+@keyframes titleAnimation {
+    0% { color: #FF5733; }
+    50% { color: #FFFD33; }
+    100% { color: #FF5733; }
+}
+
+.game-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 canvas {
-    border: 2px solid #ffcc00; /* Yellow glow border */
-    background-color: #111; /* Dark background for the canvas */
-    box-shadow: 0 0 10px 5px rgba(255, 204, 0, 0.6); /* Glowing effect */
-    width: 260px; /* Adjusted width for better scaling */
-    height: 520px; /* Maintains 1:2 aspect ratio */
+    border: 2px solid #333;
+    background-color: black;
 }
 
-.score {
-    color: #ffcc00; /* Same yellow glow */
-    font-size: 16px; /* Slightly smaller font for the score */
+#score {
     margin-top: 10px;
-    text-shadow: 0 0 5px #ffcc00, 0 0 10px #ffcc00, 0 0 20px #ffcc00; /* Glowing effect */
-}
-
-.game-over {
-    color: #ffcc00;
-    font-size: 20px; /* Reduced font size for game-over */
-    margin-top: 15px;
-    text-shadow: 0 0 10px #ffcc00, 0 0 20px #ffcc00, 0 0 40px #ffcc00;
-}
-
-/* Responsive adjustments for extra-small screens */
-@media (max-width: 600px) {
-    canvas {
-        width: 200px;
-        height: 400px;
-    }
-
-    h1 {
-        font-size: 24px;
-    }
-
-    .score, .game-over {
-        font-size: 14px;
-    }
+    font-size: 20px;
+    font-weight: bold;
 }
