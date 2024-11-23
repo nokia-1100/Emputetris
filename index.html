@@ -3,19 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Emputetris</title>
-    <link rel="stylesheet" href="style.css"> <!-- Link to your CSS file -->
+    <title>EmpuTetris</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Title Section -->
-    <div id="title-container">
-        <h1 id="game-title">Emputetris</h1>
+    <div class="title-container">
+        <h1 class="title">EmpuTetris</h1>
     </div>
-    
-    <!-- Game Canvas -->
-    <canvas id="tetris" width="300" height="600"></canvas>
-    
-    <!-- JavaScript File -->
+    <div class="game-container">
+        <canvas id="tetris" width="300" height="600"></canvas>
+        <div id="score">Score: 0</div>
+    </div>
+
     <script src="emputetris.js"></script>
 </body>
 </html>
