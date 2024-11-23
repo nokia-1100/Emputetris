@@ -9,17 +9,18 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100vh;
+    height: 100vh; /* Full screen without scrolling */
+    overflow: hidden; /* Prevent scrolling */
 }
 
 /* Title Container */
 #title-container {
-    margin-bottom: 20px;
+    margin-bottom: 10px; /* Reduced spacing */
 }
 
 /* Game Title Styling */
 #game-title {
-    font-size: 3em;
+    font-size: 2em; /* Smaller title */
     font-weight: bold;
     color: #ff5733; /* Bold orange title */
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
@@ -42,7 +43,9 @@ body {
 canvas {
     display: block;
     border: 2px solid #ff5733; /* Matches the title color */
-    box-shadow: 0 0 15px rgba(255, 87, 51, 0.8); /* Glowing effect */
+    box-shadow: 0 0 10px rgba(255, 87, 51, 0.8); /* Glowing effect */
+    width: 250px; /* Scaled down from 300px */
+    height: 500px; /* Scaled down from 600px */
 }
 
 /* Body Centering */
@@ -55,8 +58,8 @@ body > div {
 body::after {
     content: "HARD MODE: The least convenient pieces await you.";
     color: #ff0000; /* Bold red to reflect the difficulty */
-    font-size: 1.2em;
-    margin-top: 10px;
+    font-size: 1em; /* Reduced size */
+    margin-top: 5px;
     display: block;
     text-align: center;
     animation: warning-blink 1.2s infinite;
