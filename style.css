@@ -1,0 +1,73 @@
+/* General Reset */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #000; /* Black background for the game */
+    color: #fff; /* White text for contrast */
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+/* Title Container */
+#title-container {
+    margin-bottom: 20px;
+}
+
+/* Game Title Styling */
+#game-title {
+    font-size: 3em;
+    font-weight: bold;
+    color: #ff5733; /* Bold orange title */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    animation: pulse 1.5s infinite; /* Title animation */
+}
+
+/* Title Animation */
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 0.8;
+    }
+}
+
+/* Game Canvas */
+canvas {
+    display: block;
+    border: 2px solid #ff5733; /* Matches the title color */
+    box-shadow: 0 0 15px rgba(255, 87, 51, 0.8); /* Glowing effect */
+}
+
+/* Body Centering */
+body > canvas,
+body > div {
+    max-width: 100%;
+}
+
+/* Hard Mode Emphasis */
+body::after {
+    content: "HARD MODE: The least convenient pieces await you.";
+    color: #ff0000; /* Bold red to reflect the difficulty */
+    font-size: 1.2em;
+    margin-top: 10px;
+    display: block;
+    text-align: center;
+    animation: warning-blink 1.2s infinite;
+}
+
+/* Warning Animation */
+@keyframes warning-blink {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
