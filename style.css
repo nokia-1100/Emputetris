@@ -6,7 +6,7 @@
 }
 
 body {
-    background-color: #222; /* Dark background for the body */
+    background-color: #222; /* Dark background */
     font-family: 'Press Start 2P', cursive; /* Retro font */
     color: #eee;
     text-align: center;
@@ -19,30 +19,46 @@ body {
 }
 
 h1 {
-    font-size: 36px; /* Reduced size to fit the screen */
-    color: #ffcc00; /* Yellowish glow for the title */
+    font-size: 28px; /* Adjusted to fit smaller screens */
+    color: #ffcc00; /* Yellow glow for the title */
     text-shadow: 0 0 5px #ffcc00, 0 0 10px #ffcc00, 0 0 20px #ffcc00; /* Glowing effect */
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
 canvas {
-    border: 2px solid #ffcc00; /* Border in the same yellow glow */
+    border: 2px solid #ffcc00; /* Yellow glow border */
     background-color: #111; /* Dark background for the canvas */
-    box-shadow: 0 0 10px 5px rgba(255, 204, 0, 0.6); /* Subtle glowing effect around the canvas */
-    width: 300px; /* Scaled width to fit the screen */
-    height: 600px; /* Scaled height to fit the screen */
+    box-shadow: 0 0 10px 5px rgba(255, 204, 0, 0.6); /* Glowing effect */
+    width: 260px; /* Adjusted width for better scaling */
+    height: 520px; /* Maintains 1:2 aspect ratio */
 }
 
 .score {
-    color: #ffcc00; /* Same yellow glow for score */
-    font-size: 18px; /* Smaller font for the score */
+    color: #ffcc00; /* Same yellow glow */
+    font-size: 16px; /* Slightly smaller font for the score */
     margin-top: 10px;
     text-shadow: 0 0 5px #ffcc00, 0 0 10px #ffcc00, 0 0 20px #ffcc00; /* Glowing effect */
 }
 
 .game-over {
     color: #ffcc00;
-    font-size: 24px; /* Reduced font size for the game-over message */
-    margin-top: 20px;
+    font-size: 20px; /* Reduced font size for game-over */
+    margin-top: 15px;
     text-shadow: 0 0 10px #ffcc00, 0 0 20px #ffcc00, 0 0 40px #ffcc00;
+}
+
+/* Responsive adjustments for extra-small screens */
+@media (max-width: 600px) {
+    canvas {
+        width: 200px;
+        height: 400px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    .score, .game-over {
+        font-size: 14px;
+    }
 }
